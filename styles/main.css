@@ -531,8 +531,8 @@ body hr {
 
 .main-body p a {
     background-color: #FFFF9D;
-    padding-left: 6px;
-    padding-right: 6px;
+    padding-left: 1px;
+    padding-right: 1px;
     -webkit-transition: all 0.2s ease-in-out;
     -moz-transition: all 0.2s ease-in-out;
     -ms-transition: all 0.2s ease-in-out;
@@ -751,4 +751,30 @@ body hr {
 .footer .icon-button:hover .fa-google-plus,
 .footer .icon-button:hover .fa-instagram {
     color: white;
+}
+
+@media (max-width: 600px) {
+    .header-name {
+        width: 100%;
+        font-size: 20pt;
+    }
+    .typed-cursor {
+        font-size: 20pt;
+    }
+    body h2 {
+        font-size: 13pt;
+    }
+    .avatar {
+        width: 32%;
+        height: 32%;
+        margin-top: 40px;
+    }
+    .main-body p {
+        font-size: 18px;
+    }
+    .footer p {
+        font-size: 12pt;
+        line-height: 16px;
+        padding-bottom: 20px;
+    }
 }
