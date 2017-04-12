@@ -319,6 +319,19 @@ body {
     color: #2c3e50
 }
 
+canvas {
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+}
+
+.container {
+    background-color: transparent;
+    z-index: 5;
+}
+
 article,
 aside,
 details,
@@ -385,7 +398,7 @@ textarea {
 }
 
 ::selection {
-    background: #777;
+    background: transparent;
     text-shadow: none
 }
 
@@ -417,7 +430,9 @@ button:focus {
 }
 
 img {
-    height: auto
+    height: auto;
+    z-index: 5;
+
 }
 
 .container>header>h1 {
@@ -506,10 +521,14 @@ body hr {
     font-size: 35pt;
     font-weight: 600;
     color: #2c3e50;
+    z-index: 5;
+
 }
 
 .discriptor {
     display: none;
+    z-index: 5;
+
 }
 
 .avatar {
@@ -517,11 +536,15 @@ body hr {
     width: 45%;
     height: 45%;
     border: 2px solid #2ecc71;
+    z-index: 5;
+
 }
 
 .main-body {
     display: none;
     margin-top: 35px;
+    z-index: 5;
+
 }
 
 .main-body p {
@@ -718,7 +741,6 @@ body hr {
     -o-transition: all 0.3s;
     transition: all 0.3s;
     width: 4.6rem;
-    z-index: 10;
 }
 
 .footer .icon-button .fa-twitter {
