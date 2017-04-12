@@ -320,16 +320,20 @@ body {
 }
 
 canvas {
-    z-index: 2;
     position: absolute;
     top: 0;
     left: 0;
+    width:100%;
+    height:100%;
+    z-index:-1;
 }
+
+canvas:focus {
+    outline: none;
 }
 
 .container {
     background-color: transparent;
-    z-index: 5;
 }
 
 article,
@@ -431,8 +435,6 @@ button:focus {
 
 img {
     height: auto;
-    z-index: 5;
-
 }
 
 .container>header>h1 {
@@ -521,14 +523,10 @@ body hr {
     font-size: 35pt;
     font-weight: 600;
     color: #2c3e50;
-    z-index: 5;
-
 }
 
 .discriptor {
     display: none;
-    z-index: 5;
-
 }
 
 .avatar {
@@ -536,15 +534,11 @@ body hr {
     width: 45%;
     height: 45%;
     border: 2px solid #2ecc71;
-    z-index: 5;
-
 }
 
 .main-body {
     display: none;
     margin-top: 35px;
-    z-index: 5;
-
 }
 
 .main-body p {
@@ -652,6 +646,7 @@ body hr {
 /* Custom page footer */
 
 .footer {
+    display: none;
     padding-top: 15px;
     /* Wrapper */
     /* Circle */
@@ -741,6 +736,7 @@ body hr {
     -o-transition: all 0.3s;
     transition: all 0.3s;
     width: 4.6rem;
+    z-index: 10;
 }
 
 .footer .icon-button .fa-twitter {

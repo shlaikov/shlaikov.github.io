@@ -1,3 +1,32 @@
+jQuery(document).ready(function ($) {
+
+    $(window).on('load', function () {
+        $('.preloader').fadeOut(1000, function () {
+            $('.preloader').remove();
+
+            $(".element").typed({
+                strings: [
+                    "Добро пожаловать на мой сайт!",
+                    "Я web-разработчик",
+                    "Алексей Шлайков."
+                ],
+                startDelay: 0.5,
+                typeSpeed: 0.1,
+                backSpeed: 0.9,
+                backDelay: 700,
+
+                callback: function () {
+                    $(".discriptor").show("fast");
+                    $(".main-body").show("fast");
+                    $(".footer").show("fast");
+                    $(".avatar").show("fast");
+                }
+            });
+        });
+    });
+});
+
+
 function Particles() {
     this.colors = [
         '46, 204, 113',
@@ -16,6 +45,7 @@ function Particles() {
     this.numParticles = 18;
     this.canvas = document.getElementById('canvas');
     this.ctx = this.canvas.getContext('2d');
+    this.ctx.globalCompositeOperation = 'destination-over';
 }
 
 Particles.prototype.init = function () {
@@ -123,30 +153,3 @@ Particles.prototype.clearCanvas = function () {
 }
 
 var particle = new Particles().init();
-
-jQuery(document).ready(function ($) {
-
-    $(window).on('load', function () {
-        $('.preloader').fadeOut(1000, function () {
-            $('.preloader').remove();
-
-            $(".element").typed({
-                strings: [
-                    "Добро пожаловать на мой сайт!",
-                    "Я web-разработчик",
-                    "Алексей Шлайков."
-                ],
-                startDelay: 0.5,
-                typeSpeed: 0.1,
-                backSpeed: 0.9,
-                backDelay: 700,
-
-                callback: function () {
-                    $(".discriptor").show("fast");
-                    $(".main-body").show("fast");
-                    $(".avatar").show("fast");
-                }
-            });
-        });
-    });
-});
