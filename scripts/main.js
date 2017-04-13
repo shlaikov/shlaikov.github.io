@@ -18,7 +18,7 @@ jQuery(document).ready(function ($) {
                 callback: function () {
                     $(".discriptor").show("fast");
                     $(".main-body").show("fast");
-                    $(".footer").show("fast");
+                    $(".footer").show("slow");
                     $(".avatar").show("fast");
                 }
             });

@@ -328,10 +328,6 @@ canvas {
     z-index:-1;
 }
 
-canvas:focus {
-    outline: none;
-}
-
 .container {
     background-color: transparent;
 }
@@ -548,8 +544,6 @@ body hr {
 
 .main-body p a {
     background-color: #FFFF9D;
-    padding-left: 1px;
-    padding-right: 1px;
     text-decoration: underline;
     -webkit-transition: all 0.2s ease-in-out;
     -moz-transition: all 0.2s ease-in-out;
