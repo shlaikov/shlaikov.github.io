@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
@@ -38,7 +38,7 @@
     x-data="global()"
     x-init="themeInit()"
     :class="isMobileMenuOpen ? 'max-h-screen overflow-hidden relative' : ''"
-    class="bg-white dark:bg-primary"
+    class="bg-white antialiased dark:bg-primary"
   >
     <div id="main">
       <div class="container mx-auto">
@@ -59,7 +59,7 @@
               height="15"
               xmlns="http://www.w3.org/2000/svg"
               @click="isMobileMenuOpen = true"
-              class="fill-current text-primary dark:text-white"
+              class="ml-6 fill-primary dark:fill-white"
             >
               <g fill-rule="evenodd">
                 <rect width="24" height="3" rx="1.5" />
@@ -68,7 +68,7 @@
               </g>
             </svg>
           </div>
-          <div class="hidden lg:block">
+          <div class="hidden lg:flex">
             <button @click="themeSwitch()" class="theme-toggle--button" aria-label="Toggle Theme">
               <span class="shape" :class="!isDarkMode ? 'sun' : 'moon'"></span>
               <span class="rays--container">
@@ -77,6 +77,31 @@
                 <span class="ray"></span>
                 <span class="ray"></span>
               </span>
+            </button>
+            <button
+              class="ml-4 flex transform items-center rounded-xl border border-transparent px-4 py-1 text-sm font-medium text-primary transition hover:-translate-x-0.5 hover:border-transparent dark:bg-white"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" class="mr-3 h-6 w-6">
+                <path
+                  fill-rule="evenodd"
+                  d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"
+                ></path>
+              </svg>
+              Github
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="ml-6 h-6 w-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+                />
+              </svg>
             </button>
           </div>
         </div>
@@ -115,9 +140,23 @@
             </p>
             <a
               href="/"
-              class="hover:bg-green mt-12 block bg-secondary px-10 py-4 text-center font-body text-xl font-semibold text-white transition-colors sm:inline-block sm:text-left sm:text-2xl"
+              class="mt-12 inline-flex w-auto rounded-xl bg-secondary px-10 py-4 text-center font-body text-xl font-semibold text-white transition-colors sm:text-left sm:text-2xl"
             >
-              Contact with me!
+              CV download
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="ml-2 h-7 w-7"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"
+                />
+              </svg>
             </a>
           </div>
 
@@ -137,21 +176,14 @@
                   d="M15 9h3.75M15 12h3.75M15 15h3.75M4.5 19.5h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5zm6-10.125a1.875 1.875 0 11-3.75 0 1.875 1.875 0 013.75 0zm1.294 6.336a6.721 6.721 0 01-3.17.789 6.721 6.721 0 01-3.168-.789 3.376 3.376 0 016.338 0z"
                 />
               </svg>
-              <h3 class="ml-3 font-body text-2xl font-semibold">My Story</h3>
+              <h3 class="ml-3 font-body text-2xl font-semibold">About</h3>
             </div>
             <div>
-              <p class="font-body font-light text-primary dark:text-white">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                incididunt ut labore et dolore magna aliqua. Nibh mauris cursus mattis molestie. Et
-                leo duis ut diam. Sit amet tellus cras adipiscing enim eu turpis. Adipiscing at in
-                tellus integer feugiat.
-                <br />
-                <br />
-                Maecenas accumsan lacus vel facilisis. Eget egestas purus viverra accumsan in nisl
-                nisi scelerisque eu. Non tellus orci ac auctor augue mauris augue neque gravida.
-                Auctor augue mauris augue neque gravida in fermentum et sollicitudin. Tempus urna et
-                pharetra pharetra massa massa ultricies mi quis. Amet mauris commodo quis imperdiet
-                massa. Integer vitae justo eget magna fermentum iaculis eu non.
+              <p class="font-body leading-relaxed text-primary dark:text-white">
+                I love my family and people around me, IT, application architecture, interfaces. I'm
+                currently working as a team leader (core team) at Citeck company. We develop a
+                business-process approach to the development of different products. In my free time
+                I develop a pet-project for process management on BMP engine.
               </p>
             </div>
           </div>
@@ -172,14 +204,105 @@
                   d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"
                 />
               </svg>
-              <h3 class="ml-3 font-body text-2xl font-semibold">My Story</h3>
+              <h3 class="ml-3 font-body text-2xl font-semibold">Experience</h3>
             </div>
-            <div class="pt-8"></div>
+            <div class="pt-8">
+              <section class="body-font text-primary dark:text-white">
+                <div class="flex w-full flex-wrap">
+                  <div class="relative flex pb-12">
+                    <div class="absolute inset-0 flex h-full w-10 items-center justify-center">
+                      <div class="pointer-events-none h-full w-1 bg-secondary"></div>
+                    </div>
+                    <div
+                      class="relative z-10 inline-flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-secondary"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                        class="h-6 w-6"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zM12.75 6a.75.75 0 00-1.5 0v6c0 .414.336.75.75.75h4.5a.75.75 0 000-1.5h-3.75V6z"
+                          clip-rule="evenodd"
+                        />
+                      </svg>
+                    </div>
+                    <div class="flex-grow pl-4">
+                      <h2 class="title-font mb-1 text-sm font-medium tracking-wider">STEP 1</h2>
+                      <p class="leading-relaxed">
+                        VHS cornhole pop-up, try-hard 8-bit iceland helvetica. Kinfolk bespoke
+                        try-hard cliche palo santo offal.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="relative flex pb-12">
+                    <div class="absolute inset-0 flex h-full w-10 items-center justify-center">
+                      <div class="pointer-events-none h-full w-1 bg-secondary"></div>
+                    </div>
+                    <div
+                      class="relative z-10 inline-flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-secondary"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                        class="h-6 w-6"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zM12.75 6a.75.75 0 00-1.5 0v6c0 .414.336.75.75.75h4.5a.75.75 0 000-1.5h-3.75V6z"
+                          clip-rule="evenodd"
+                        />
+                      </svg>
+                    </div>
+                    <div class="flex-grow pl-4">
+                      <h2 class="title-font mb-1 text-sm font-medium tracking-wider">STEP 1</h2>
+                      <p class="leading-relaxed">
+                        VHS cornhole pop-up, try-hard 8-bit iceland helvetica. Kinfolk bespoke
+                        try-hard cliche palo santo offal.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="relative flex">
+                    <div
+                      class="relative z-10 inline-flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-secondary"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                        class="h-6 w-6"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M9.315 7.584C12.195 3.883 16.695 1.5 21.75 1.5a.75.75 0 01.75.75c0 5.056-2.383 9.555-6.084 12.436A6.75 6.75 0 019.75 22.5a.75.75 0 01-.75-.75v-4.131A15.838 15.838 0 016.382 15H2.25a.75.75 0 01-.75-.75 6.75 6.75 0 017.815-6.666zM15 6.75a2.25 2.25 0 100 4.5 2.25 2.25 0 000-4.5z"
+                          clip-rule="evenodd"
+                        />
+                        <path
+                          d="M5.26 17.242a.75.75 0 10-.897-1.203 5.243 5.243 0 00-2.05 5.022.75.75 0 00.625.627 5.243 5.243 0 005.022-2.051.75.75 0 10-1.202-.897 3.744 3.744 0 01-3.008 1.51c0-1.23.592-2.323 1.51-3.008z"
+                        />
+                      </svg>
+                    </div>
+                    <div class="flex-grow pl-4">
+                      <h2 class="title-font mb-1 text-sm font-medium tracking-wider">STEP 1</h2>
+                      <p class="leading-relaxed">
+                        VHS cornhole pop-up, try-hard 8-bit iceland helvetica. Kinfolk bespoke
+                        try-hard cliche palo santo offal.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </div>
           </div>
         </div>
       </div>
 
-      <footer class="container mx-auto mb-8 text-primary dark:text-white">
+      <footer
+        class="container mx-auto mb-8 border-t border-grey-lighter pt-4 text-primary dark:text-white"
+      >
         <div class="flex flex-col items-center sm:flex-row">
           <p>
             © 2023 Alexey Shlaikov —

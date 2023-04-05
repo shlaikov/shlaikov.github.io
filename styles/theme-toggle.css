@@ -8,14 +8,9 @@
   align-items: center;
   background-color: #fff;
   justify-content: center;
-  transition: box-shadow 500ms;
   font-size: 15px;
   width: 35px;
   height: 35px;
-  box-shadow: 4px 4px 15px rgba(53, 49, 117, 0.2);
-}
-.dark ~ .theme-toggle--button {
-  box-shadow: 4px 4px 15px rgb(29 27 58);
 }
 .theme-toggle--button span {
   display: inline-block;
