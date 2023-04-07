@@ -1,7 +1,9 @@
 const defaultTheme = require("tailwindcss/defaultTheme")
 
+/** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./*.html"],
+  mode: "jit",
+  content: ["./index.html"],
   safelist: ["dark"],
   darkMode: "class",
   theme: {
@@ -18,8 +20,6 @@ module.exports = {
       transparent: "transparent",
       primary: "#1e272e",
       secondary: "#2ecc71",
-      "green-light": "#0be881",
-      "green-dark": "#065a68",
       black: "#000000",
       white: "#ffffff",
       "yellow-lighter": "#ffdd59",
@@ -98,11 +98,11 @@ module.exports = {
             color: theme("colors.primary"),
             a: {
               fontWeight: theme("fontWeight.semibold"),
-              color: theme("colors.green"),
+              color: theme("colors.secondary"),
               textDecoration: "underline",
               transition: "color 300ms",
               "&:hover": {
-                color: theme("colors.primary"),
+                opacity: 0.8,
               },
             },
             "p, li": {
@@ -114,19 +114,6 @@ module.exports = {
             "ul > li::before": {
               backgroundColor: theme("colors.primary"),
             },
-            blockquote: {
-              borderLeftWidth: "1rem",
-              borderColor: theme("colors.green-dark"),
-              borderRadius: "3px",
-              backgroundColor: theme("colors.green-light"),
-              padding: `${theme("spacing.4")} ${theme("spacing.6")}`,
-              color: theme("colors.green"),
-              fontStyle: "normal",
-              p: {
-                margin: 0,
-                fontWeight: theme("fontWeight.normal"),
-              },
-            },
           },
         },
         dark: {
@@ -134,9 +121,6 @@ module.exports = {
             color: theme("colors.white"),
             a: {
               color: theme("colors.secondary"),
-              "&:hover": {
-                color: theme("colors.green"),
-              },
             },
             "h1, h2, h3, h4, h5, h6": {
               color: theme("colors.white"),
@@ -149,10 +133,5 @@ module.exports = {
       }),
     },
   },
-  plugins: [
-    require("@tailwindcss/typography")({
-      modifiers: [],
-    }),
-    require("@tailwindcss/forms"),
-  ],
+  plugins: [require("@tailwindcss/typography"), require("@tailwindcss/forms")],
 }

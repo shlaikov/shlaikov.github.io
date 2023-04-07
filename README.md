@@ -1,1 +1,0 @@
-# Portfolio site - Alexey Shlaikov

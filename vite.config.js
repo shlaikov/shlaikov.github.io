@@ -1,15 +1,15 @@
-const { resolve } = require("path")
-
 export default {
   plugins: [],
   server: {
-    open: "/index.html",
+    open: "./index.html",
     port: 3116,
   },
   build: {
+    minify: true,
+    sourcemap: true,
     rollupOptions: {
       input: {
-        main: resolve(__dirname, "index.html"),
+        main: "index.html",
       },
     },
   },

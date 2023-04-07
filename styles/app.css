@@ -9,6 +9,18 @@ html {
 
 @tailwind utilities;
 
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #1e272e;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  body {
+    background: #fff;
+  }
+}
+
 .container {
   max-width: 600px;
 
