@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "shlaikov.github.io",
-  "version": "2.0.0-snapshot",
+  "version": "2.1.0-snapshot",
   "scripts": {
     "dev": "vite",
     "build:css": "postcss styles/app.css -o dist/assets/styles/app.min.css",
