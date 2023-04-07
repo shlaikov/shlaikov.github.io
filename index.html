@@ -1,151 +1,564 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport" />
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description" content="Личная страница портфолио">
-    <title>Алексей Шлайков</title>
-    <!-- Add to homescreen -->
-    <link rel="manifest" href="manifest.json">
-    <!-- Fallback to homescreen for Chrome <39 on Android -->
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="application-name" content="Portfolio">
-    <meta name="keywords" content="Алексей Шлайков, веб-разработчик, личный сайт, портфолио, Alexey Shlaikov, web-developer, python, django, создание сайтов">
-    <link rel="icon" sizes="192x192" href="images/touch/chrome-touch-icon-192x192.png">
-    <!-- Add to homescreen for Safari on iOS -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="Portfolio">
-    <link rel="apple-touch-icon" href="images/touch/apple-touch-icon.png">
-    <!-- Tile icon for Win8 (144x144 + tile color) -->
-    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
-    <meta name="msapplication-TileColor" content="#2ecc71">
-    <meta name="msapplication-config" content="none">
-    <!-- You can customize the default -->
-    <meta name="theme-color" content="#2ecc71">
-    <link rel="canonical" href="http://shlaikov.github.io/">
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="styles/bootstrap.min.css">
-    <link rel="stylesheet" href="styles/font-awesome.min.css">
-    <link rel="stylesheet" href="styles/vendor.min.css">
-    <link rel="stylesheet" href="styles/animate.min.css">
-    <link rel="stylesheet" href="styles/main.css">
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-</head>
+    <title>Alexey Shlaikov</title>
+    <meta name="description" content="Alexey Shlaikov personal page with links and other stuff" />
+    <meta name="keywords" content="Алексей Шлайков, Alexey Shlaikov, web-developer, open-source" />
+    <link rel="canonical" href="http://shlaikov.github.io/" />
 
-<body>
-    <div class="preloader">
-        <div class="circ1"></div>
-        <div class="circ2"></div>
-        <div class="circ3"></div>
-        <div class="circ4"></div>
+    <meta property="og:title" content="Alexey Shlaikov" />
+    <meta property="og:locale" content="en_US" />
+    <link rel="icon" sizes="192x192" href="images/touch/chrome-touch-icon-192x192.png" />
+    <link rel="apple-touch-icon" href="images/touch/apple-touch-icon.png" />
+    <meta
+      name="msapplication-TileImage"
+      content="images/touch/ms-touch-icon-144x144-precomposed.png"
+    />
+    <meta name="msapplication-TileColor" content="#2ecc71" />
+    <meta name="msapplication-config" content="none" />
+    <meta property="og:site_name" content="Alexey Shlaikov" />
+    <meta property="og:image" content="https://shlaikov.github.io/images/avatar.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@Alexey_Shlaikov" />
+    <meta name="theme-color" content="#2ecc71" />
+
+    <link crossorigin="crossorigin" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="preload"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style context="module">
+      @import "styles/app.css";
+    </style>
+
+    <!--Alpine Js V3-->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script type="module" src="scripts/main.js"></script>
+  </head>
+
+  <body
+    x-data="global()"
+    x-init="themeInit()"
+    :class="isMobileMenuOpen ? 'max-h-screen overflow-hidden relative' : ''"
+    class="bg-white antialiased dark:bg-primary"
+  >
+    <div id="main">
+      <div class="container mx-auto">
+        <div class="flex items-center justify-end py-6 lg:py-10">
+          <div class="flex items-center lg:hidden">
+            <button @click="themeSwitch()" class="theme-toggle--button" aria-label="Toggle Theme">
+              <span class="shape" :class="!isDarkMode ? 'sun' : 'moon'"></span>
+              <span class="rays--container">
+                <span class="ray"></span>
+                <span class="ray"></span>
+                <span class="ray"></span>
+                <span class="ray"></span>
+              </span>
+            </button>
+
+            <svg
+              width="24"
+              height="15"
+              xmlns="http://www.w3.org/2000/svg"
+              @click="isMobileMenuOpen = true"
+              class="ml-6 fill-primary dark:fill-white"
+            >
+              <g fill-rule="evenodd">
+                <rect width="24" height="3" rx="1.5" />
+                <rect x="8" y="6" width="16" height="3" rx="1.5" />
+                <rect x="4" y="12" width="20" height="3" rx="1.5" />
+              </g>
+            </svg>
+          </div>
+          <div class="hidden lg:flex">
+            <button @click="themeSwitch()" class="theme-toggle--button" aria-label="Toggle Theme">
+              <span class="shape" :class="!isDarkMode ? 'sun' : 'moon'"></span>
+              <span class="rays--container">
+                <span class="ray"></span>
+                <span class="ray"></span>
+                <span class="ray"></span>
+                <span class="ray"></span>
+              </span>
+            </button>
+            <a
+              class="ml-4 flex transform items-center rounded-xl border border-transparent px-4 py-1 text-sm font-medium text-primary transition hover:-translate-x-0.5 hover:border-transparent dark:bg-white"
+              href="https://github.com/shlaikov"
+              target="_blank"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" class="mr-3 h-6 w-6">
+                <path
+                  fill-rule="evenodd"
+                  d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"
+                ></path>
+              </svg>
+              Github
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="ml-6 h-6 w-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="pointer-events-none fixed inset-0 z-50 flex bg-black bg-opacity-80 opacity-0 transition-opacity lg:hidden"
+        :class="isMobileMenuOpen ? 'opacity-100 pointer-events-auto' : ''"
+      >
+        <div class="bg-green ml-auto w-2/3 p-4 md:w-1/3">
+          <i
+            class="absolute right-0 top-0 mr-4 mt-4 text-4xl text-white"
+            @click="isMobileMenuOpen = false"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="mt-1 h-11 w-11"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+              />
+            </svg>
+          </i>
+
+          <ul class="mt-10 flex flex-col">
+            <li>
+              <a
+                href="https://github.com/shlaikov"
+                class="mb-3 block px-2 font-body text-lg font-medium text-white"
+                target="_blank"
+                >Github</a
+              >
+            </li>
+            <li>
+              <a
+                href="http://instagram.com/alexey_shlaikov/"
+                class="mb-3 block px-2 font-body text-lg font-medium text-white"
+                target="_blank"
+                >Instagram</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div>
+        <div class="container mx-auto">
+          <div
+            class="relative py-16 before:absolute before:left-1/2 before:top-0 before:-z-[1] before:h-full before:w-full before:-translate-x-1/2 before:transform before:bg-[url('/images/squared-bg.svg')] before:bg-contain before:bg-top before:bg-no-repeat before:opacity-30 dark:before:bg-[url('/images/squared-bg-dark.svg')] dark:before:opacity-80 lg:py-20"
+          >
+            <div>
+              <img src="images/avatar.png" class="h-32 w-32 rounded-full" alt="Alexey Shlaikov" />
+            </div>
+            <h1
+              class="pt-3 font-body text-4xl font-semibold text-primary dark:text-white md:text-5xl lg:text-6xl"
+            >
+              Hi, I’m Alexey Shlaikov 👋
+            </h1>
+            <p class="pt-3 font-body text-xl font-light text-primary dark:text-white">
+              A software engineer and open-source enthusiast
+            </p>
+            <div class="md:flex-no-wrap flex flex-wrap">
+              <a
+                href="/docs/Resume-Alexey-Shlaikov.pdf"
+                @click="confetti({ particleCount: 150, origin: { x: 0.32 }, spread: 50 })"
+                class="mt-12 inline-flex w-auto transform rounded-xl bg-secondary px-10 py-4 text-center font-body text-xl font-semibold text-white transition-colors active:scale-105 sm:text-left sm:text-2xl"
+                download
+              >
+                📝 Download CV
+              </a>
+              <div
+                class="inline-flex items-center justify-start self-end pt-5 sm:flex sm:pt-0 md:ml-10 md:justify-center"
+              >
+                <p class="font-body leading-relaxed text-primary dark:text-white">
+                  let's connect:
+                  <span class="mt-4 inline-flex justify-center sm:ml-auto sm:mt-0 sm:justify-start">
+                    <a
+                      class="cursor-pointer"
+                      href="http://facebook.com/alexey.shlaikov"
+                      target="_blank"
+                    >
+                      <svg
+                        fill="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        class="h-5 w-5"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"
+                        ></path>
+                      </svg>
+                    </a>
+                    <a
+                      class="ml-3 cursor-pointer"
+                      href="http://twitter.com/Shlaikov_Alexey"
+                      target="_blank"
+                    >
+                      <svg
+                        fill="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        class="h-5 w-5"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"
+                        ></path>
+                      </svg>
+                    </a>
+                    <a
+                      class="ml-3 cursor-pointer"
+                      href="http://instagram.com/alexey_shlaikov/"
+                      target="_blank"
+                    >
+                      <svg
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        class="h-5 w-5"
+                        viewBox="0 0 24 24"
+                      >
+                        <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                        <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
+                      </svg>
+                    </a>
+                    <a
+                      class="ml-3 cursor-pointer"
+                      href="https://www.linkedin.com/in/alexey-shlaikov"
+                      target="_blank"
+                    >
+                      <svg
+                        fill="currentColor"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="0"
+                        class="h-5 w-5"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke="none"
+                          d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"
+                        ></path>
+                        <circle cx="4" cy="4" r="2" stroke="none"></circle>
+                      </svg>
+                    </a>
+                  </span>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="py-16 lg:py-20">
+            <div class="flex items-center pb-6 text-primary dark:text-white">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="h-6 w-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15 9h3.75M15 12h3.75M15 15h3.75M4.5 19.5h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5zm6-10.125a1.875 1.875 0 11-3.75 0 1.875 1.875 0 013.75 0zm1.294 6.336a6.721 6.721 0 01-3.17.789 6.721 6.721 0 01-3.168-.789 3.376 3.376 0 016.338 0z"
+                />
+              </svg>
+              <h3 class="ml-3 font-body text-2xl font-semibold">About</h3>
+            </div>
+            <div>
+              <p class="font-body leading-relaxed text-primary dark:text-white">
+                I love my family and people around me, IT, software architecture, interfaces. I'm
+                currently working as a team leader (core team) at Citeck company. We develop a
+                business-process approach to the development of different products. In my free time
+                I develop a pet-project for process management on BPM engine.
+              </p>
+            </div>
+          </div>
+
+          <div class="py-16 lg:py-20">
+            <div class="flex items-center pb-6 text-primary dark:text-white">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="h-6 w-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"
+                />
+              </svg>
+              <h3 class="ml-3 font-body text-2xl font-semibold">Experience</h3>
+            </div>
+            <div class="pt-8">
+              <section class="body-font text-primary dark:text-white">
+                <div class="flex w-full flex-wrap">
+                  <div class="relative flex w-full pb-12">
+                    <div class="absolute inset-0 flex h-full w-10 items-center justify-center">
+                      <div class="pointer-events-none h-full w-1 bg-grey-lightest"></div>
+                    </div>
+                    <div
+                      class="relative z-10 inline-flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-grey-lightest"
+                    >
+                      <p class="text-3xl">👨‍💼</p>
+                    </div>
+                    <div class="flex-grow pl-4">
+                      <h2 class="title-font mb-1 text-sm font-medium tracking-wider">
+                        2022 - Present
+                      </h2>
+                      <p class="leading-relaxed">
+                        Citeck - we work hard and have fun. We make awesome products and that all
+                        having great fun. All the best is yet to come!
+                      </p>
+                    </div>
+                  </div>
+                  <div class="relative flex w-full pb-12">
+                    <div class="absolute inset-0 flex h-full w-10 items-center justify-center">
+                      <div class="pointer-events-none h-full w-1 bg-grey-lightest"></div>
+                    </div>
+                    <div
+                      class="relative z-10 inline-flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-grey-lightest"
+                    >
+                      <p class="text-3xl">🕓</p>
+                    </div>
+                    <div class="flex-grow pl-4">
+                      <h2 class="title-font mb-1 text-sm font-medium tracking-wider">2019-2022</h2>
+                      <p class="leading-relaxed">
+                        Melon Fashion Group - as my work in Melon was mostly during Covid period, we
+                        as a team learned how to work efficiently in a remote mode. I also met
+                        interesting people my colleagues.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="relative flex w-full pb-12">
+                    <div class="absolute inset-0 flex h-full w-10 items-center justify-center">
+                      <div class="pointer-events-none h-full w-1 bg-grey-lightest"></div>
+                    </div>
+                    <div
+                      class="relative z-10 inline-flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-grey-lightest"
+                    >
+                      <p class="text-3xl">🕓</p>
+                    </div>
+                    <div class="flex-grow pl-4">
+                      <h2 class="title-font mb-1 text-sm font-medium tracking-wider">2018-2019</h2>
+                      <p class="leading-relaxed">
+                        Megabonus - was my real product experience with Agile and I found a lot of
+                        friends there. They are my friends to this day.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="relative flex w-full pb-12">
+                    <div class="absolute inset-0 flex h-full w-10 items-center justify-center">
+                      <div class="pointer-events-none h-full w-1 bg-grey-lightest"></div>
+                    </div>
+                    <div
+                      class="relative z-10 inline-flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-grey-lightest"
+                    >
+                      <p class="text-3xl">🕓</p>
+                    </div>
+                    <div class="flex-grow pl-4">
+                      <h2 class="title-font mb-1 text-sm font-medium tracking-wider">2017-2018</h2>
+                      <p class="leading-relaxed">
+                        MobiMoney - first Experience in IT. Usage of PCI DSS standards,
+                        certifications and other adult things.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="relative flex w-full">
+                    <div
+                      class="relative z-10 inline-flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-grey-lightest"
+                    >
+                      <p class="text-2xl">🚀</p>
+                    </div>
+                    <div class="flex-grow pl-4">
+                      <h2 class="title-font mb-1 text-sm font-medium tracking-wider">
+                        Launch in 1997
+                      </h2>
+                      <p class="leading-relaxed">My dad brought my first PC home</p>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer
+        class="container mx-auto mb-8 border-t border-grey-lighter pt-4 text-primary dark:text-white"
+      >
+        <div class="flex flex-col items-center sm:flex-row">
+          <p>
+            © 2023 Alexey Shlaikov —
+            <a
+              href="http://twitter.com/Shlaikov_Alexey"
+              class="ml-1 cursor-pointer"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              @shlaikov
+            </a>
+          </p>
+          <span class="mt-4 inline-flex justify-center sm:ml-auto sm:mt-0 sm:justify-start">
+            <a class="cursor-pointer" href="http://facebook.com/alexey.shlaikov" target="_blank">
+              <svg
+                fill="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                class="h-5 w-5"
+                viewBox="0 0 24 24"
+              >
+                <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+              </svg>
+            </a>
+            <a
+              class="ml-3 cursor-pointer"
+              href="http://twitter.com/Shlaikov_Alexey"
+              target="_blank"
+            >
+              <svg
+                fill="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                class="h-5 w-5"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"
+                ></path>
+              </svg>
+            </a>
+            <a
+              class="ml-3 cursor-pointer"
+              href="http://instagram.com/alexey_shlaikov/"
+              target="_blank"
+            >
+              <svg
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                class="h-5 w-5"
+                viewBox="0 0 24 24"
+              >
+                <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
+              </svg>
+            </a>
+            <a
+              class="ml-3 cursor-pointer"
+              href="https://www.linkedin.com/in/alexey-shlaikov"
+              target="_blank"
+            >
+              <svg
+                fill="currentColor"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="0"
+                class="h-5 w-5"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke="none"
+                  d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"
+                ></path>
+                <circle cx="4" cy="4" r="2" stroke="none"></circle>
+              </svg>
+            </a>
+          </span>
+        </div>
+      </footer>
     </div>
 
-    <div class="container">
-        <div class="dots">
-            <div class="circ1 wow slideInDown" data-wow-delay="0.0s"></div>
-            <div class="circ2 wow slideInDown" data-wow-delay="0.1s"></div>
-            <div class="circ3 wow slideInDown" data-wow-delay="0.2s"></div>
-            <div class="circ4 wow slideInDown" data-wow-delay="0.3s"></div>
-        </div>
-        <!--Typing Action Animation with dots-->
-        <div class="typing-act row">
-            <div class="col-md-9">
-                <p class="header-name"><span class="element"></span></p>
-                <h2 class="discriptor wow fadeInDown" data-wow-delay="0s">web-разработчик / дизайнер / гик</h2>
-            </div>
-            <div class="col-md-3">
-                <img class="img-circle avatar wow fadeInLeft" src="images/avatar.png" data-wow-delay="1s" alt="Алексей Шлайков" />
-            </div>
-        </div>
-        <!--Main body after typing action-->
-        <div class="main-body wow fadeIn" data-wow-delay="1s">
-            <div class="row">
-                <div class="col-md-10">
-                    <p>Проживаю в прекрасном городе Петербурге, учусь на четвёртом курсе<br>Факультета Электроники в
-                        <a href="http://www.eltech.ru/" target="_blank">СПбГЭТУ "ЛЭТИ"</a>.<br>В свободное время пишу код, самообучаюсь,
-                        творю и путешествую.</p>
-                    <p>Моё творение вы можете найти на <a href="https://github.com/shlaikov" target="_blank">GitHub</a>. На сайте присутствует
-                        <a href="/portfolio">ПОРТФОЛИО</a> с моими некоторыми работами. Также я автоматизирую digital-рекламу,
-                        пишу небольшие CRMки и настраиваю их.</p>
-                    <p id="PS"> P.S. Если есть какие-то вопросы - я всегда готов помочь.<br><a href="mailto:shlaikov.alexey@ya.ru?subject=Сотрудничество">ПИШИТЕ МНЕ <i class="fa fa-envelope-o" aria-hidden="true"></i></a>                        и мы будем сотрудничать.</p>
-                </div>
-                <div class="col-md-2"></div>
-            </div>
-            <div class="row">
-                <div class="dots separator wow fadeIn" data-wow-delay="1s">
-                    <div class="circ1"></div>
-                    <div class="circ2"></div>
-                    <div class="circ3"></div>
-                    <div class="circ4"></div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <script
+      async
+      src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"
+    ></script>
 
-    <footer class="footer wow fadeIn" data-wow-delay="2s">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-9">
-                    <p class="text-muted"><br>Сделано с <i class="fa fa-heart"></i> в Санкт-Петербурге.<br><br>Авторские права© 2015 - 2017
-                        <br><br>Алексей Шлайков.<br><br>Все права защищены.</p>
-                </div>
-                <div class="col-md-3 social-icon">
-                    <p class="text-muted">Подпишитесь:</p>
-                    <a href="http://twitter.com/Shlaikov_Alexey" target="_blank" class="icon-button twitter"><i class="fa fa-twitter"></i><span></span></a>
-                    <a href="http://facebook.com/alexey.shlaikov" target="_blank" class="icon-button facebook"><i class="fa fa-facebook"></i><span></span></a>
-                    <a href="http://dribbble.com/Shlaikov_Alexey" target="_blank" class="icon-button dribbble"><i class="fa fa-dribbble"></i><span></span></a>
-                    <br>
-                    <a href="http://vk.com/alexey_shlaikov" target="_blank" class="icon-button vk"><i class="fa fa-vk"></i><span></span></a>
-                    <a href="https://github.com/shlaikov" target="_blank" class="icon-button github"><i class="fa fa-github"></i><span></span></a>
-                    <a href="http://instagram.com/alexey_shlaikov/" target="_blank" class="icon-button instagram"><i class="fa fa-instagram"></i><span></span></a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <canvas id="canvas"></canvas>
-
-
-    <script src="scripts/jquery.min.js"></script>
-    <script src="scripts/bootstrap.min.js"></script>
-    <script src="scripts/typed.js"></script>
-    <script src="scripts/wow.min.js"></script>
-
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-D2Q5JHCB0G"></script>
     <script>
-        new WOW().init();
+      window.dataLayer = window.dataLayer || []
+      function gtag() {
+        dataLayer.push(arguments)
+      }
+      gtag("js", new Date())
 
-        (function (i, s, o, g, r, a, m) {
-            i['GoogleAnalyticsObject'] = r;
-            i[r] = i[r] || function () {
-                (i[r].q = i[r].q || []).push(arguments)
-            }, i[r].l = 1 * new Date();
-            a = s.createElement(o),
-                m = s.getElementsByTagName(o)[0];
-            a.async = 1;
-            a.src = g;
-            m.parentNode.insertBefore(a, m)
-        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
-
-        ga('create', 'UA-97001057-1', 'auto');
-        ga('send', 'pageview');
+      gtag("config", "G-D2Q5JHCB0G")
     </script>
 
-    <script src="scripts/main.js"></script>
-
-</body>
-
+    <script>
+      function global() {
+        return {
+          isMobileMenuOpen: false,
+          isDarkMode:
+            window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches,
+          themeInit() {
+            if (
+              localStorage.theme === "dark" ||
+              (!("theme" in localStorage) &&
+                window.matchMedia("(prefers-color-scheme: dark)").matches)
+            ) {
+              localStorage.theme = "dark"
+              document.documentElement.classList.add("dark")
+              this.isDarkMode = true
+            } else {
+              localStorage.theme = "light"
+              document.documentElement.classList.remove("dark")
+              this.isDarkMode = false
+            }
+          },
+          themeSwitch() {
+            if (localStorage.theme === "dark") {
+              localStorage.theme = "light"
+              document.documentElement.classList.remove("dark")
+              this.isDarkMode = false
+            } else {
+              localStorage.theme = "dark"
+              document.documentElement.classList.add("dark")
+              this.isDarkMode = true
+            }
+          },
+        }
+      }
+    </script>
+  </body>
 </html>
