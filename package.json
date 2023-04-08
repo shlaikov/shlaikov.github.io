@@ -4,7 +4,6 @@
   "version": "2.1.0-snapshot",
   "scripts": {
     "dev": "vite",
-    "build:css": "postcss styles/app.css -o dist/assets/styles/app.min.css",
     "build": "vite build",
     "serve": "vite preview"
   },
