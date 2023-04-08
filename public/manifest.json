@@ -1,6 +1,6 @@
 {
-  "name": "Portfolio",
-  "short_name": "portfolio web-site",
+  "name": "Alexey Shlaikov",
+  "short_name": "personal web-site",
   "icons": [
     {
       "src": "images/touch/icon-128x128.png",
@@ -24,7 +24,5 @@
     }
   ],
   "start_url": "/index.html",
-  "display": "standalone",
-  "background_color": "#fff",
-  "theme_color": "#2ecc71"
+  "display": "standalone"
 }
