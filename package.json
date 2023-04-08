@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "shlaikov.github.io",
-  "version": "2.1.0",
+  "version": "2.2.0-snapshot",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
